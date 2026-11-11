@@ -1,41 +1,34 @@
-# Briefly — Daily Intelligence (v0.2)
+# Briefly v0.4 — Midnight Editorial
 
-A responsive, blue-and-green dark-mode PWA prototype for a daily current-affairs briefing tailored to UPSC / UPPCS and PSIR.
+Mobile-first dark editorial PWA for a daily current-affairs reading experience.
 
-## Product requirements implemented in this prototype
-- Ten priority editorial slots per daily edition (not an arbitrary five-story cap).
-- Story categories and a priority-based reading feed.
-- Article detail structure: Introduction, Significance, Challenges / Critical concerns, Way Forward, UPSC / PSIR relevance, Prelims fact file, and an expert-synthesis Conclusion.
-- The editorial schema allows sections to be omitted when they are not materially relevant; the conclusion remains mandatory for every article.
-- Save articles to a browser-local reading list.
-- Select text in an article and save the selected passage to browser-local highlights.
-- Responsive mobile and desktop layouts, installable PWA shell, and basic offline caching.
+## Included in this release
+- Midnight charcoal and warm champagne visual system.
+- Responsive mobile-first briefing feed and bottom navigation.
+- Entire story card opens its article; bookmark control remains independently clickable.
+- Article reader with low-opacity decorative watermark treatment.
+- Persistent bottom highlight / Notion action toolbar while an article is open.
+- On-demand Samsung One UI-inspired `Aa` font-size bottom sheet (five sizes).
+- Font preference persists in localStorage and applies to article text and value-added facts.
+- Fluid transitions, touch feedback, glass-like surfaces and reduced-motion support.
+- Value Added for UPSC block for relevant facts/concepts and syllabus links.
+- Updated service-worker cache version to ensure clients fetch the new release.
 
 ## Important limitations
-- The ten entries in `app.js` are illustrative editorial templates, **not verified current news**. Do not publish them as live news. Replace each day's content with verified, dated source material and direct article links.
-- Saved articles and highlights currently live in this browser's `localStorage`; they do not yet sync across devices.
-- The “Save highlight to Notion” action is an integration placeholder. Secure Notion saving needs a server-side Notion integration/OAuth flow; never put a Notion secret in browser JavaScript. Once connected, selected text should be saved with article title, source URL, date, and the selected passage.
-- Live RSS ingestion, automatic AI analysis, remote push notifications, and scheduled publishing are not connected yet. Browser notification permission alone does not deliver remote notifications while the app is closed.
+- Existing story entries are illustrative editorial templates, not verified current news.
+- No real story-specific image assets have been supplied. The reader currently uses a subdued abstract watermark motif; replace with a relevant editorial image only when a verified image source is available.
+- Court judgments, statistics and constitutional provisions are not fabricated. The Value Added block displays supplied facts and syllabus connections; specific judgments/data should be added only with verified references.
+- Highlighting and saved articles are browser-local. Cross-device sync is not yet implemented.
+- The Notion button is a UI placeholder. Real sync requires a secure server-side Notion integration and user authorisation.
+- Live news ingestion, ranking and push notifications are not connected in this static GitHub Pages build.
 
-## Local preview
-From this folder run:
+## Deploy to the existing GitHub Pages repository
+1. Extract the ZIP.
+2. Open the existing `briefly` repository.
+3. Choose **Add file → Upload files**.
+4. Upload all files inside this folder to the repository root, replacing existing files when prompted.
+5. Commit the changes.
+6. Wait for GitHub Pages deployment.
+7. On Android Chrome, reopen the site. If the old shell remains, close the installed PWA and reopen it after the service worker activates; if needed clear site data for the GitHub Pages site and reinstall.
 
-```bash
-python -m http.server 8080
-```
-
-Then visit `http://localhost:8080`. Service workers require localhost or HTTPS; they do not work reliably from `file://`.
-
-## Free deployment direction
-- Host the static PWA on GitHub Pages.
-- Use a scheduled GitHub Actions workflow for a daily feed build within free usage limits.
-- Keep secrets in server-side repository secrets or a serverless worker, never in client files.
-- Add Notion integration through a secure server-side endpoint. A Notion integration must be granted access to the destination page/database; consult the official API reference before implementing.
-- Add Web Push/FCM only after deployment and device subscription testing. Free quotas and provider terms can change.
-
-## Editorial standard for every published story
-1. Rank by materiality, novelty, public impact, policy consequence and exam relevance.
-2. Cite primary sources wherever possible; include publication date and direct source link.
-3. Separate verified facts, official claims, estimates and analytical inference.
-4. Use only relevant analytical sections (for example, do not force a “Challenges” section for a simple factual appointment).
-5. Always end with a concise, defensible expert conclusion that synthesises the issue rather than merely repeating the introduction.
+No new repository is needed. The published URL stays the same.
