@@ -20,7 +20,6 @@
       <button class="nav-item" data-view="prelims"><span class="nav-icon">◎</span><span>Prelims desk</span></button>
       <button class="nav-item" data-view="mains"><span class="nav-icon">✳</span><span>Mains &amp; PSIR</span></button>
       <button class="nav-item" data-view="saved"><span class="nav-icon">◇</span><span>Saved articles</span><em id="saved-count">0</em></button>
-      <button class="nav-item" data-view="highlights"><span class="nav-icon">▧</span><span>My highlights</span><em id="highlight-count">0</em></button>
     </nav>
     <div class="sidebar-bottom"><i></i><div><b>Your reading space</b><small>News, context and analysis</small></div></div>
   </aside>
@@ -59,7 +58,6 @@
   <button class="mobile-nav-item" data-view="prelims"><span>◎</span><small>Prelims</small></button>
   <button class="mobile-nav-item" data-view="mains"><span>✳</span><small>Mains</small></button>
   <button class="mobile-nav-item" data-view="saved"><span>◇</span><small>Saved</small></button>
-  <button class="mobile-nav-item" data-view="highlights"><span>▧</span><small>Highlights</small></button>
 </nav>
 
 <div class="reader-overlay hidden" id="reader-overlay">
@@ -67,11 +65,6 @@
     <div class="reader-top"><button id="reader-back" class="back-btn">← <span>Briefing</span></button><div class="reader-tools"><button id="font-open" class="icon-btn aa-btn" aria-label="Text size">Aa</button><button id="reader-save" class="outline-btn">◇ Save article</button><button id="reader-close" class="close-btn" aria-label="Close article">×</button></div></div>
     <div id="reader-content"></div>
   </article>
-  <div class="reader-footer" role="toolbar" aria-label="Article actions">
-    <div class="toolbar-hint" id="toolbar-hint">Select a passage to save a highlight</div>
-    <button id="save-selection" class="primary-btn" disabled>✦ <span>Save highlight</span></button>
-    <button id="notion-selection" class="notion-btn" disabled>↗ <span>Save to Notion</span></button>
-  </div>
 </div>
 <div class="font-scrim hidden" id="font-scrim"></div>
 <section class="font-sheet hidden" id="font-sheet" role="dialog" aria-modal="true" aria-labelledby="font-title">
@@ -84,7 +77,7 @@
   <div class="font-preview"><span>Preview</span><h3 id="font-preview-title">A more comfortable reading experience</h3><p id="font-preview-copy">Adjust the size to suit your eyes. Your preference will be remembered.</p></div>
   <div class="sheet-actions"><button id="font-cancel" class="sheet-cancel">Cancel</button><button id="font-apply" class="sheet-apply">Apply</button></div>
 </section>
-<div class="selection-pop hidden" id="selection-pop"><span>Text selected</span><button id="highlight-selection">Highlight &amp; save</button></div>
+<div class="selection-pop hidden" id="selection-pop"><button id="copy-selection">Copy passage</button></div>
 <div class="toast" id="toast" role="status"></div>
 <script src="app.js"></script>
 </body>
